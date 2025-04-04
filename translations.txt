@@ -1,0 +1,1 @@
+	Course(courseCode(pk), courseName, syllabus, progression, createdAt)
