@@ -31,7 +31,7 @@ client.connect((err) => {
 
 //Routing
 app.get("/", (req, res) => {
-    client.query("SELECT * FROM courses", (err, result) => {
+    client.query("SELECT id, coursecode, coursename, syllabus, progression FROM courses", (err, result) => {
         if(err) {
             console.log("Fel vid db-fråga");
         } else {

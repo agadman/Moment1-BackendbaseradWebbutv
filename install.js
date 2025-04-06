@@ -29,6 +29,7 @@ client.query(`
         coursecode VARCHAR(20) NOT NULL,
         coursename VARCHAR(100) NOT NULL,
         syllabus VARCHAR(100) NOT NULL,
-        progression VARCHAR(1) CHECK (progression IN ('A', 'B', 'C'))
+        progression VARCHAR(1) CHECK (progression IN ('A', 'B', 'C')),
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
 `);
