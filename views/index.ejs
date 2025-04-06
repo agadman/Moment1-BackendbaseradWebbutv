@@ -13,6 +13,16 @@
             <li><a href="/about">Om</a></li>
         </ul>
     </header>
-    <h1>Alla kurser i en lista...</h1>
+    <h1>Alla kurser</h1>
+    <ul>
+        <% courses.forEach(course => { %>
+            <li>
+                <strong><%= course.coursecode %></strong> – 
+                <%= course.coursename %> 
+                (<%= course.progression %>) –
+                <a href="<%= course.syllabus %>" target="_blank">Kursplan</a>
+            </li>
+        <% }) %>
+    </ul>
 </body>
 </html>

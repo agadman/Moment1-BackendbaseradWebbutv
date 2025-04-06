@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true })); // Aktiverar formulärdata
+const port = process.env.PORT || 3000;
 
 //Ansluter till databasen
 const client = new Client ({
@@ -30,16 +31,37 @@ client.connect((err) => {
 
 //Routing
 app.get("/", (req, res) => {
-    res.render("index");
-})
+    client.query("SELECT * FROM courses", (err, result) => {
+        if(err) {
+            console.log("Fel vid db-fråga");
+        } else {
+            res.render("index", {
+                courses: result.rows
+            });
+        }
+    });
+});
 
 app.get("/add", (req, res) => {
     res.render("add");
 })
 
-app.post("/add", (req, res) => {
-    res.render("add");
-})
+app.post("/add", async (req, res) => {
+    const { coursecode, coursename, syllabus, progression } = req.body;
+
+    try {
+        await client.query(
+            "INSERT INTO courses (coursecode, coursename, syllabus, progression) VALUES ($1, $2, $3, $4)",
+            [coursecode, coursename, syllabus, progression]
+        );
+        res.redirect("/"); 
+    } catch (err) {
+        console.error("Fel vid insättning i databasen:", err);
+        res.status(500).send("Något gick fel.");
+    }
+
+    res.redirect("/");
+});
 
 app.get("/about", (req, res) => {
     res.render("about");
