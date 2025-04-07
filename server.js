@@ -33,7 +33,7 @@ client.connect((err) => {
 app.get("/", (req, res) => {
     client.query("SELECT id, coursecode, coursename, syllabus, progression FROM courses", (err, result) => {
         if(err) {
-            console.log("Fel vid db-fråga");
+            console.log("Fel vid db-fråga: ", err);
         } else {
             res.render("index", {
                 courses: result.rows
@@ -59,8 +59,18 @@ app.post("/add", async (req, res) => {
         console.error("Fel vid insättning i databasen:", err);
         res.status(500).send("Något gick fel.");
     }
+});
 
-    res.redirect("/");
+app.post("/delete/:id", async (req, res) => {
+    const courseId = req.params.id;
+
+    try {
+        await client.query("DELETE FROM courses WHERE id = $1", [courseId]);
+        res.redirect("/");
+    } catch (err) {
+        console.error("Fel vid radering:", err);
+        res.status(500).send("Något gick fel vid radering.");
+    }
 });
 
 app.get("/about", (req, res) => {

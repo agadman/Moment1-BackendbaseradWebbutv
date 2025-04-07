@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mina kurser</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -14,15 +16,25 @@
         </ul>
     </header>
     <h1>Mina kurser</h1>
-    <ul>
-        <% courses.forEach(course => { %>
-            <li>
-                <strong><%= course.coursecode %></strong> – 
-                <%= course.coursename %> 
-                (<%= course.progression %>) –
-                <a href="<%= course.syllabus %>" target="_blank">Kursplan</a>
-            </li>
-        <% }) %>
-    </ul>
+    <section class="course-list">
+        <ul>
+            <% courses.forEach(course => { %>
+                <li class="course-item">
+                    <div class="course-text">
+                        <strong><%= course.coursecode %></strong> – 
+                        <%= course.coursename %> 
+                        (<%= course.progression %>) –
+                        <a href="<%= course.syllabus %>" target="_blank">Kursplan</a>
+                    </div>
+                    <form action="/delete/<%= course.id %>" method="POST" class="delete-form">
+                        <button type="submit" title="Radera kurs" class="delete-btn">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </form>
+                </li>                
+            <% }) %>
+        </ul>
+
+    </section>  
 </body>
 </html>
