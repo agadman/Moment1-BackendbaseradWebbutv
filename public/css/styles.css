@@ -74,26 +74,30 @@ p {
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0;
+    flex-wrap: nowrap; 
 }
 
 .course-text {
-    flex: 1;
+    flex: 1 1 auto;
+    min-width: 0; 
+}
+
+.course-item form {
+    flex-shrink: 0;
 }
 
 .delete-btn {
     background: none;
     border: none;
     cursor: pointer;
-    margin-left: 10px;
-    font-size: 1em;
+    font-size: 1.1em;
+    padding: 0;
 }
 
 .delete-btn i {
     color: red;
-}
-
-.delete-btn:hover {
-    background-color: transparent;
 }
 
 .delete-btn i:hover {
@@ -169,17 +173,18 @@ form button:hover {
     }
 
     .course-item {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
     }
+
+    .course-item form {
+        align-self: flex-start; 
+        margin-top: 5px;
+    }       
 
     .delete-btn {
         align-self: flex-end;
-        margin-top: 5px;
-    }
-
-    form.course-form {
-        padding: 15px;
+        margin-top: 20px;
     }
 
     form input[type="text"],
