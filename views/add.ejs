@@ -16,6 +16,7 @@
     </header>
     <h1>Lägg till en kurs</h1>
     <% if (errors && errors.length > 0) { %>
+        <!-- Om det finns felmeddelanden, visa dem i en lista -->
         <section class="error-messages">
             <ul>
                 <% errors.forEach(function(error) { %>
@@ -24,7 +25,7 @@
             </ul>
         </section>
     <% } %>         
-    <form action="/add" method="POST" class="course-form">
+    <form action="/add" method="POST" class="course-form"> <!-- Använder POST för att skicka data till servern för att skapa en ny kurs -->
         <label>Kurskod:</label>
         <input type="text" name="coursecode" id="coursecode"><br>
 

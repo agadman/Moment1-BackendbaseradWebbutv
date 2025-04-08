@@ -18,6 +18,7 @@
     <h1>Mina kurser</h1>
     <section class="course-list">
         <article>
+            <!-- Itererar över alla kurser och visar varje kurs i en lista -->
             <% courses.forEach(course => { %>
                 <div class="course-item">
                     <p class="course-text">
@@ -26,6 +27,7 @@
                         (<%= course.progression %>) –
                         <a href="<%= course.syllabus %>" target="_blank">Kursplan</a>
                     </p>
+                    <!-- Formulär för att radera kursen -->
                     <form action="/delete/<%= course.id %>" method="POST">
                         <button type="submit" title="Radera kurs" class="delete-btn">
                             <i class="fa-solid fa-trash"></i>
