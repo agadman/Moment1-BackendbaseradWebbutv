@@ -20,7 +20,6 @@ async function install() {
 
         // Skapar tabellen
         const sql = `
-            DROP TABLE IF EXISTS courses;
             CREATE TABLE courses(
                 id SERIAL PRIMARY KEY,
                 coursecode VARCHAR(20) NOT NULL,
