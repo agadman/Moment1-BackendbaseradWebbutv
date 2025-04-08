@@ -31,7 +31,7 @@ client.connect((err) => {
 //Routing
 app.get("/", async (req, res) => {
     try {
-        const courses = await client.query("SELECT id, coursecode, coursename, syllabus, progression FROM courses");
+        const courses = await client.query("SELECT id, coursecode, coursename, syllabus, progression FROM courses ORDER BY created_at ASC");
         res.render("index", { courses: courses.rows }); // Hämtar kurserna till indexsidan
     } catch (error) {
         console.error(error);
