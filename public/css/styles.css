@@ -89,7 +89,7 @@ p {
 }
 
 .delete-btn {
-    background: none;
+    background: none !important;
     border: none;
     cursor: pointer;
     font-size: 1.1em;
@@ -97,10 +97,12 @@ p {
 }
 
 .delete-btn i {
+    background-color: transparent !important;
     color: red;
 }
 
 .delete-btn i:hover {
+    background-color: transparent !important;
     color: darkred;
 }
 
