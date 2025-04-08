@@ -51,6 +51,15 @@ h1 {
     color: #E07A5F;
 }
 
+h2 {
+    margin-top: 20px;
+}
+
+p {
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+
 .course-list {
     max-width: 800px;
     margin: 30px auto;
@@ -58,20 +67,6 @@ h1 {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-ul {
-    list-style: none;
-    padding: 20px;
-}
-
-li {
-    margin: 10px 0;
-    font-size: 1.1em;
-}
-
-li strong {
-    color: #81B29A;
 }
 
 .course-item {
@@ -85,15 +80,6 @@ li strong {
     flex: 1;
 }
 
-form.course-form {
-    max-width: 600px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 .delete-btn {
     background: none;
     border: none;
@@ -104,6 +90,42 @@ form.course-form {
 
 .delete-btn i {
     color: red;
+}
+
+.delete-btn:hover {
+    background-color: transparent;
+}
+
+.delete-btn i:hover {
+    color: darkred;
+}
+
+.error-messages{
+    width: 100%;
+    text-align: center;
+    color: #FF0000;
+}
+
+ul {
+    padding: 0 20px;
+}
+
+li {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+li strong {
+    color: #81B29A;
+}
+
+form.course-form {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 form label {
@@ -134,16 +156,8 @@ form button:hover {
     background-color: #77a48e
 }
 
-p {
-    font-size: 1.1em;
-    text-align: center;
-    margin-top: 20px;
-}
-
-.delete-btn:hover {
-    background-color: transparent;
-}
-
-.delete-btn i:hover {
-    color: darkred;
+.about-text {
+    max-width: 600px;
+    margin: 30px auto;
+    text-align: left; 
 }

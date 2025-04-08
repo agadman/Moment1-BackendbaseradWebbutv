@@ -14,7 +14,36 @@
             <li><a href="/about" class="current">Om</a></li>
         </ul>
     </header>
-    <h1>Om webbplatsen</h1>  
-    <p>Om denna webbplats...</p>
+    <h1>Om webbplatsen</h1>
+    <section class="about-text">
+        <p>Denna webbplats har skapats som en del av kursen "Backend-baserad webbutveckling" och syftar till att ge en praktisk förståelse för serverbaserad webbutveckling, samt hur man arbetar med relationsdatabaser för att lagra och hantera data.</p>
+        <h2>Syfte</h2>
+        <p>Syftet med uppgiften var att:</p>
+        <ul>
+            <li>Förstå hur man skapar och hanterar en serverbaserad webbapplikation med Node.js och Express.</li>
+            <li>Lära sig att ansluta till och arbeta med en relationsdatabas (i detta fall PostgreSQL via Render).</li>
+            <li>Kunna hämta och presentera data från databasen på en webbplats med hjälp av en "view engine" (jag har använt EJS för detta).</li>
+            <li>Implementera funktioner för att lägga till, uppdatera och radera data genom formulär på webbplatsen, samt validera användarinmatning innan data lagras i databasen.</li>
+        </ul>
+        <h2>Databas</h2>
+        <p>Denna applikation använder en PostgreSQL-databas, som är skapad och administrerad via pgAdmin4. Databasen lagrar information om kurser, inklusive:</p>
+        <ul>
+            <li>Kurskod</li>
+            <li>Kursnamn</li>
+            <li>Kursplan (länk)</li>
+            <li>Progression</li>
+        </ul>
+        <p>En tabell för kurser har skapats med dessa fält som grund. Här kan användare lagra sina kurser och visa tidigare inlagda kurser på webbplatsen. Alla kurser lagras och hanteras genom SQL-kommandon som SELECT, INSERT, UPDATE och DELETE.</p>
+        <h2>Slutsatser</h2>
+        <p>Under arbetets gång har jag lärt mig mycket om hur man skapar en serverapplikation, ansluter till en databas och hanterar användardata på ett säkert och effektivt sätt. Jag har även fått en bättre förståelse för hur formulär och användarinteraktioner kan implementeras och valideras korrekt innan data sparas i en databas.</p>
+        <p>Webbplatsen är designad för att vara enkel och användarvänlig, med responsiv design som fungerar bra på både stora och små skärmar. Användare kan snabbt lägga till nya kurser via formuläret, samt se och ta bort sina inlagda kurser på en översiktssida.</p>
+        <h2>Teknisk information</h2>
+        <ul>
+            <li>Server: Node.js med Express.</li>
+            <li>Databas: PostgreSQL, administrerad via pgAdmin4.</li>
+            <li>Publicering: Webbplatsen är publicerad på Render.</li>
+            <li>View Engine: EJS.</li>
+        </ul>
+    </section>
 </body>
 </html>

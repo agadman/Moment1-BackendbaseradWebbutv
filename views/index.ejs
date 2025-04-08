@@ -17,24 +17,23 @@
     </header>
     <h1>Mina kurser</h1>
     <section class="course-list">
-        <ul>
+        <article>
             <% courses.forEach(course => { %>
-                <li class="course-item">
-                    <div class="course-text">
+                <div class="course-item">
+                    <p class="course-text">
                         <strong><%= course.coursecode %></strong> – 
                         <%= course.coursename %> 
                         (<%= course.progression %>) –
                         <a href="<%= course.syllabus %>" target="_blank">Kursplan</a>
-                    </div>
-                    <form action="/delete/<%= course.id %>" method="POST" class="delete-form">
+                    </p>
+                    <form action="/delete/<%= course.id %>" method="POST">
                         <button type="submit" title="Radera kurs" class="delete-btn">
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </form>
-                </li>                
+                </div>                
             <% }) %>
-        </ul>
-
+        </article>
     </section>  
 </body>
 </html>

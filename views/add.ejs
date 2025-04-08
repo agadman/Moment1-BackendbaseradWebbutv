@@ -14,19 +14,28 @@
             <li><a href="/about">Om</a></li>
         </ul>
     </header>
-    <h1>Lägga till en kurs...</h1>
+    <h1>Lägg till en kurs</h1>
+    <% if (errors && errors.length > 0) { %>
+        <section class="error-messages">
+            <ul>
+                <% errors.forEach(function(error) { %>
+                    <li><%= error %></li>
+                <% }) %>
+            </ul>
+        </section>
+    <% } %>         
     <form action="/add" method="POST" class="course-form">
         <label>Kurskod:</label>
-        <input type="text" name="coursecode" id="coursecode" required><br>
+        <input type="text" name="coursecode" id="coursecode"><br>
 
         <label>Kursnamn:</label>
-        <input type="text" name="coursename" id="coursename" required><br>
+        <input type="text" name="coursename" id="coursename"><br>
 
         <label>Kursplan (länk):</label>
-        <input type="text" name="syllabus" id="syllabus" required><br>
+        <input type="text" name="syllabus" id="syllabus"><br>
 
         <label>Progression (A/B/C):</label>
-        <input type="text" name="progression" id="progression" required><br>
+        <input type="text" name="progression" id="progression"><br>
 
         <button type="submit">Lägg till</button>
     </form>

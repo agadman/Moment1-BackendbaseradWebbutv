@@ -7,7 +7,6 @@ const bodyParser = require("body-parser");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true })); // Aktiverar formulärdata
-const port = process.env.PORT || 3000;
 
 //Ansluter till databasen
 const client = new Client ({
@@ -30,40 +29,64 @@ client.connect((err) => {
 });
 
 //Routing
-app.get("/", (req, res) => {
-    client.query("SELECT id, coursecode, coursename, syllabus, progression FROM courses", (err, result) => {
-        if(err) {
-            console.log("Fel vid db-fråga: ", err);
-        } else {
-            res.render("index", {
-                courses: result.rows
-            });
-        }
-    });
+app.get("/", async (req, res) => {
+    try {
+        const courses = await client.query("SELECT id, coursecode, coursename, syllabus, progression FROM courses");
+        res.render("index", { courses: courses.rows });
+    } catch (error) {
+        console.error(error);
+    }
 });
 
-app.get("/add", (req, res) => {
-    res.render("add");
+app.get("/add", async (req, res) => {
+    res.render("add", { errors: {} }); 
 })
 
 app.post("/add", async (req, res) => {
-    const { coursecode, coursename, syllabus, progression } = req.body;
-
     try {
+        const coursecode = req.body.coursecode.trim();
+        const coursename = req.body.coursename.trim();
+        const syllabus   = req.body.syllabus.trim();
+        const progression = req.body.progression.trim();
+
+        const errors = [];
+    
+        // Validering av input fält
+        if (!coursecode) {
+            errors.push("Kurskod är obligatorisk.");
+        }
+        if (!coursename) {
+            errors.push("Kursnamn är obligatoriskt.");
+        }
+        if (!syllabus) {
+            errors.push("Kursplan är obligatorisk.");
+        }
+        if (!progression) {
+            errors.push("Progression är obligatorisk.");
+        }
+    
+        if (errors.length > 0) {
+            return res.render("add", {
+                errors,
+                coursecode,
+                coursename,
+                syllabus,
+                progression
+            });
+        }
+
         await client.query(
             "INSERT INTO courses (coursecode, coursename, syllabus, progression) VALUES ($1, $2, $3, $4)",
             [coursecode, coursename, syllabus, progression]
         );
         res.redirect("/"); 
-    } catch (err) {
-        console.error("Fel vid insättning i databasen:", err);
-        res.status(500).send("Något gick fel.");
+    } catch(error) {
+        console.error(error);
     }
 });
 
 app.post("/delete/:id", async (req, res) => {
     const courseId = req.params.id;
-
     try {
         await client.query("DELETE FROM courses WHERE id = $1", [courseId]);
         res.redirect("/");
@@ -73,11 +96,12 @@ app.post("/delete/:id", async (req, res) => {
     }
 });
 
-app.get("/about", (req, res) => {
+app.get("/about", async (req, res) => {
     res.render("about");
 })
 
-//Starta applikationen
+//Startar upp servern
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log("Server started on: " + port);
 })
