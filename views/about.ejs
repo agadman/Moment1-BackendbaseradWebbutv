@@ -16,34 +16,31 @@
     </header>
     <h1>Om webbplatsen</h1>
     <section class="about-text">
-        <p>Denna webbplats har skapats som en del av kursen "Backend-baserad webbutveckling" och syftar till att ge en praktisk förståelse för serverbaserad webbutveckling, samt hur man arbetar med relationsdatabaser för att lagra och hantera data.</p>
+        <p>Denna webbplats är skapad inom kursen “Backend-baserad webbutveckling” och har som mål att ge praktisk förståelse för serverbaserad webbutveckling och hur man använder relationsdatabaser för att lagra och hantera data.</p>
         <h2>Syfte</h2>
-        <p>Syftet med uppgiften var att:</p>
-        <ul>
-            <li>Förstå hur man skapar och hanterar en serverbaserad webbapplikation med Node.js och Express.</li>
-            <li>Lära sig att ansluta till och arbeta med en relationsdatabas (i detta fall PostgreSQL via Render).</li>
-            <li>Kunna hämta och presentera data från databasen på en webbplats med hjälp av en "view engine" (jag har använt EJS för detta).</li>
-            <li>Implementera funktioner för att lägga till, uppdatera och radera data genom formulär på webbplatsen, samt validera användarinmatning innan data lagras i databasen.</li>
-        </ul>
+        <p>Syftet med uppgiften var att ge en praktisk förståelse för hur man skapar och hanterar en serverbaserad webbapplikation med hjälp av Node.js och Express. I arbetet ingick att lära sig hur man ansluter till och arbetar med en relationsdatabas, i detta fall PostgreSQL via Render. Ett annat viktigt moment var att kunna hämta och presentera data från databasen på webbplatsen med hjälp av en view engine, där jag använde EJS. Dessutom ingick att implementera funktioner för att lägga till och radera data via formulär på webbplatsen, samt att validera input av användare innan informationen lagras i databasen.</p>
         <h2>Databas</h2>
-        <p>Denna applikation använder en PostgreSQL-databas, som är skapad och administrerad via pgAdmin4. Databasen lagrar information om kurser, inklusive:</p>
+        <p>Denna applikation använder jag en PostgreSQL-databas, som är skapad och administrerad via pgAdmin4. Databasen lagrar information om kurser enligt följande kolumner:</p>
         <ul>
             <li>Kurskod</li>
             <li>Kursnamn</li>
             <li>Kursplan (länk)</li>
             <li>Progression</li>
+            <li>Datum som kursen är tillagd</li>
         </ul>
-        <p>En tabell för kurser har skapats med dessa fält som grund. Här kan användare lagra sina kurser och visa tidigare inlagda kurser på webbplatsen. Alla kurser lagras och hanteras genom SQL-kommandon som SELECT, INSERT, UPDATE och DELETE.</p>
-        <h2>Slutsatser</h2>
-        <p>Under arbetets gång har jag lärt mig mycket om hur man skapar en serverapplikation, ansluter till en databas och hanterar användardata på ett säkert och effektivt sätt. Jag har även fått en bättre förståelse för hur formulär och användarinteraktioner kan implementeras och valideras korrekt innan data sparas i en databas.</p>
-        <p>Webbplatsen är designad för att vara enkel och användarvänlig, med responsiv design som fungerar bra på både stora och små skärmar. Användare kan snabbt lägga till nya kurser via formuläret, samt se och ta bort sina inlagda kurser på en översiktssida.</p>
+        <p>Jag har skapat en tabell för kurser med dessa kolumner som grund. Här kan användare spara sina kurser och visa tidigare inlagda kurser på webbplatsen. Alla kurser lagras och hanteras genom SQL-kommandon som SELECT, INSERT och DELETE.</p>
         <h2>Teknisk information</h2>
         <ul>
             <li>Server: Node.js med Express.</li>
             <li>Databas: PostgreSQL, administrerad via pgAdmin4.</li>
+            <li>SQL: Används för att hantera data i PostgreSQL</li>
             <li>Publicering: Webbplatsen är publicerad på Render.</li>
             <li>View Engine: EJS.</li>
         </ul>
+        <h2>Slutsats</h2>
+        <p>Under arbetets gång har jag lärt mig mycket om hur man skapar en serverapplikation, ansluter till en databas och hanterar användardata på ett säkert och effektivt sätt. Jag har även fått en bättre förståelse för hur formulär och användarinteraktioner kan implementeras och valideras korrekt innan data sparas i en databas.</p>
+        <p>Webbplatsen är designad för att vara enkel och användarvänlig, med responsiv design som fungerar bra på både stora och små skärmar. Användare kan snabbt lägga till nya kurser via formuläret, samt se och ta bort sina inlagda kurser på en översiktssida.</p> 
+        <p>Om jag hade haft mer tid hade jag fokuserat på att implementera en funktion för att uppdatera kolumner i databasen med hjälp av SQL:s UPDATE-sats. Jag skulle även ha försökt lösa problemet med att formuläret renderas om och tömmer ifyllda fält när felmeddelanden visas. Jag hade velat att eventuellt redan ifyllda fält skulle fortsätta vara ifyllda, trots att felmeddelanden visas.</p>
     </section>
 </body>
 </html>
