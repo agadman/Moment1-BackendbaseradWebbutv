@@ -161,3 +161,52 @@ form button:hover {
     margin: 30px auto;
     text-align: left; 
 }
+
+@media screen and (max-width: 768px) {
+    header ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .course-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .delete-btn {
+        align-self: flex-end;
+        margin-top: 5px;
+    }
+
+    form.course-form {
+        padding: 15px;
+    }
+
+    form input[type="text"],
+    form button {
+        font-size: 1em;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        margin: 20px 0;
+    }
+
+    .about-text {
+        padding: 0 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    header a {
+        font-size: 14px;
+    }
+
+    form button {
+        width: 100%;
+    }
+}
